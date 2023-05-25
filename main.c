@@ -15,7 +15,6 @@ int main() {
     int** poblacion = generar_poblacion(filas, columnas);
     // MUESTRA MATRIZ
     printf("\n MATRIZ DE LA POBLACION \n");
-
     printf("---------------------- \n");
     for (int i = 0; i < filas; i++) {
         printf("|  ");
@@ -26,7 +25,7 @@ int main() {
     }
     printf("---------------------- \n\n\n");
 
-
+    // CICLO PARA SELECCIONAR RENGLONES DE MANERA ALEATORIA
     do
     {
         renglones_aleatorios(itereaciones,poblacion, filas, columnas);
@@ -57,21 +56,23 @@ int** generar_poblacion(int filas, int columnas) {
 
 void renglones_aleatorios(int itereaciones, int** matriz, int filas, int columnas) {
 
-    // SELECCIONA INDICES AL AZR
+    // SELECCIONA INDICES AL AZAR
     srand(time(NULL));
     int indice1 = rand() % filas;
     int indice2 = rand() % filas;
 
     // MOSTRAR RENGLON SELECCIONADO
     printf("Renglones seleccionados en la iteracion %i:\n",itereaciones);
+    //RENGLON 1
     printf("Renglon %d: ", indice1+1);
     for (int j = 0; j < columnas; j++) {
         printf("%d ", matriz[indice1][j]);
     }
     printf("\n");
+    // RENGLON 2
     printf("Renglon %d: ", indice2+1);
     for (int j = 0; j < columnas; j++) {
         printf("%d ", matriz[indice2][j]);
     }
-    printf("\n");
+    printf("\n\n");
 }
