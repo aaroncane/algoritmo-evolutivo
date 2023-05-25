@@ -9,18 +9,30 @@ int** generar_poblacion(int filas, int columnas);
 int main() {
     int filas = 8;
     int columnas = 8;
+    int itereaciones=0;
+
     // GENERAR MATRIZ DE POBLACION
     int** poblacion = generar_poblacion(filas, columnas);
-
     // MUESTRA MATRIZ
+    printf("\n MATRIZ DE LA POBLACION \n");
+
+    printf("---------------------- \n");
     for (int i = 0; i < filas; i++) {
+        printf("|  ");
         for (int j = 0; j < columnas; j++) {
             printf("%d ", poblacion[i][j]);
         }
-        printf("\n");
+        printf("  |\n");
     }
+    printf("---------------------- \n\n\n");
 
-        renglones_aleatorios(poblacion, filas, columnas);
+
+    do
+    {
+        renglones_aleatorios(itereaciones,poblacion, filas, columnas);
+        itereaciones++;
+    } while (itereaciones<=20);
+
 
     return 0;
 }
@@ -43,7 +55,7 @@ int** generar_poblacion(int filas, int columnas) {
 
 
 
-void renglones_aleatorios(int** matriz, int filas, int columnas) {
+void renglones_aleatorios(int itereaciones, int** matriz, int filas, int columnas) {
 
     // SELECCIONA INDICES AL AZR
     srand(time(NULL));
@@ -51,7 +63,7 @@ void renglones_aleatorios(int** matriz, int filas, int columnas) {
     int indice2 = rand() % filas;
 
     // MOSTRAR RENGLON SELECCIONADO
-    printf("Renglones seleccionados:\n");
+    printf("Renglones seleccionados en la iteracion %i:\n",itereaciones);
     printf("Renglon %d: ", indice1+1);
     for (int j = 0; j < columnas; j++) {
         printf("%d ", matriz[indice1][j]);
